@@ -21,7 +21,7 @@ body {
     font-style: normal;
     font-variation-settings:
         "wdth" 105;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 
     background-color: var(--bgColor);
     color: var(--textColor);
@@ -39,20 +39,32 @@ header {
 
 button {
     font-family: "Inconsolata", serif;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     color: var(--typedColor);
     background-color: var(--untypedColor);
     border: 0;
     border-radius: 4px;
     padding: 10px 15px;
-
-    
 }
+
+button.active {
+    background-color: var(--typedColor);
+    color: var(--untypedColor);
+  }
 
 #buttons {
-    text-align: right;
+    display: flex;
+    margin : 10px;
+    gap: 10px;
+    align-items: left;
+    flex-direction: column;
 }
 
+#restartButton {
+    color: var(--bgColor);
+    margin-right: auto;
+    background-color: var(--textColor);
+}
 #words {
     display: flex;
     flex-wrap: wrap;
@@ -62,13 +74,13 @@ button {
 
 #game {
     line-height: 30px;
-    height: 160px;
+    height: 300px;
     overflow: hidden;
     position: relative;
 }
 
 .word {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     padding: 4px 2px;
     color: var(--untypedColor);
     display: inline-block;
