@@ -11,8 +11,17 @@
         <h1>type</h1>
         <div id="header">
             <div id="buttons">
+                <div id="wordsButtons" class="button-group">
+                    <button id="10wordsButton">10 Words</button>
+                    <button id="25wordsButton" class="active">25 Words</button>
+                    <button id="50wordsButton">50 Words</button>
+                  </div>
+                <div id="difficultyButtons" class="button-group">
+                    <button id="easyButton" class="active">Easy</button>
+                    <button id="mediumButton">Medium</button>
+                    <button id="hardButton">Hard</button>
+                </div>
                 <button id="restartButton">Restart</button>
-            </div>
         </div>
 
         <div id="game" tabindex="0">
@@ -21,5 +30,6 @@
         </div>
     </main>
     <script src="game.js"></script>
+    <script src="buttons.js"></script>
 </body>
 </html>
