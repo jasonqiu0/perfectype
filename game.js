@@ -29,4 +29,58 @@ function startGame() {
 
 }
 
+document.getElementById("game").addEventListener('keyup', ev => {
+    const key = ev.key;
+    const currentWord = document.querySelector('.word.current');
+    const currentLetter = document.querySelector('.letter.current');
+    const expected = currentLetter?.innerHTML || ' ';
+    const isLetter = key.length === 1 && key !== ' ';
+    const isSpace = key === ' ';
+    const isBackspace = key === 'Backspace';
+    const isFirstLetter = currentLetter === currentWord.firstChild;
+    
+    console.log({key,expected});
+
+    if(isLetter) {
+        if(currentLetter) {
+            if(key == expected) {
+                addClass(currentLetter, 'correct');
+                removeClass(currentLetter, 'current');
+            }
+            else if(key != expected) {
+                addClass(currentLetter, 'incorrect');
+                removeClass(currentLetter, 'current');
+            }
+            if (currentLetter.nextElementSibling) {
+                addClass(currentLetter.nextElementSibling, 'current');
+            } 
+        }
+    }
+
+    if (isSpace) {
+        if (expected !== ' ') {
+          const lettersToInvalidate = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
+          lettersToInvalidate.forEach(letter => {
+            addClass(letter, 'incorrect');
+          });
+        }
+        removeClass(currentWord, 'current');
+        addClass(currentWord.nextSibling, 'current');
+        if (currentLetter) {
+          removeClass(currentLetter, 'current');
+        }
+        addClass(currentWord.nextSibling.firstChild, 'current');
+      }
+    const threshold = 60;
+    if (currentWord.nextSibling) { 
+        const newCurrentWord = document.querySelector('.word.current');
+        if(newCurrentWord && newCurrentWord.offsetTop > threshold) {
+            const scrollAmount = newCurrentWord.offsetTop - threshold;
+            document.getElementById('words').style.transform = `translateY(-${scrollAmount}px)`;
+        }
+    }
+
+});
+
+
 startGame();
