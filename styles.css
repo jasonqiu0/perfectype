@@ -60,13 +60,32 @@ button {
     margin-top: 20px;
 }
 
-.word {
-    font-size: 1.5rem;
-    padding: 4px 4px;
-    color: var(--untypedColor);
-    display: inline-block;
+#game {
+    line-height: 30px;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
 }
 
-.letter {
+.word {
+    font-size: 1.5rem;
+    padding: 4px 2px;
+    color: var(--untypedColor);
     display: inline-block;
+    margin: 0 2px;
 }
+
+.letter.correct{
+    color: var(--typedColor);
+}
+.letter.incorrect{
+    color: #f55;
+}
+
+@keyframes blink {
+    0% { background-color: rgba(255, 255, 255, 1); }
+    100% { background-color: transparent; }
+  }
+  .letter.current {
+     animation: blink .7s  infinite;
+  }
