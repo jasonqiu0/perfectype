@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jq typing game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <main>
+        <h1>type</h1>
+        <div id="header">
+            <div id="buttons">
+                <button id="restartButton">Restart</button>
+            </div>
+        </div>
+
+        <div id="game" tabindex="0">
+            <div id="words"></div>
+            <div id="letters"></div>
+        </div>
+    </main>
+    <script src="game.js"></script>
 </body>
 </html>
