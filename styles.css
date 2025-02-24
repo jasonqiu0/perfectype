@@ -74,7 +74,7 @@ button.active {
 
 #game {
     line-height: 30px;
-    height: 300px;
+    height: 340px;
     overflow: hidden;
     position: relative;
 }
@@ -84,7 +84,7 @@ button.active {
     padding: 4px 2px;
     color: var(--untypedColor);
     display: inline-block;
-    margin: 0 2px;
+    margin: 2px;
 }
 
 .letter.correct{
@@ -101,3 +101,18 @@ button.active {
   .letter.current {
      animation: blink .7s  infinite;
   }
+
+  #stats {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--typedColor);
+  }
+  #stats p {
+    margin: 5px 0;
+  }
+#wordsTypedStat {
+    color: var(--untypedColor);
+}
+#charactersTypedStat {
+    color: var(--untypedColor);
+}
