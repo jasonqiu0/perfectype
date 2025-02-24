@@ -26,12 +26,14 @@ function wordToDiv(word) {
 }
 
 function startGame() {
+    
     document.getElementById('words').innerHTML = '';
     for(let i = 0; i < wordsLen; i++) {
         document.getElementById('words').innerHTML += wordToDiv(randomWord());
     }
     addClass(document.querySelector('.word'), 'current');
     addClass(document.querySelector('.letter'), 'current');
+    
 
 }
 document.getElementById("game").addEventListener('keydown', ev => {
@@ -77,7 +79,6 @@ document.getElementById("game").addEventListener('keyup', ev => {
             addClass(letter, 'incorrect');
           });
         }
-        // Mark the current word as finished
         document.querySelector('.word.current').classList.add("finished");
         
         removeClass(currentWord, 'current');
