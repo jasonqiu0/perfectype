@@ -21,11 +21,18 @@ function updateStats() {
         }
       }
     });
-    
-    document.getElementById("correctWordsStat").textContent = `Correct Words: ${correctWords} / ${totalWords}`;
-    document.getElementById("wordsTypedStat").textContent = `Words Typed: ${finishedWords} / ${totalWords}`;
-    document.getElementById("correctLettersStat").textContent = `Correct Letters: ${correctLetters} / ${totalLetters}`;
-    document.getElementById("charactersTypedStat").textContent = `Characters Typed: ${typedLetters} / ${totalLetters}`;
+
+    let wordAccuracy = totalWords > 0 ? Math.round((correctWords / totalWords) * 100) : 0;
+    let letterAccuracy = totalLetters > 0 ? Math.round((correctLetters / totalLetters) * 100) : 0;
+
+    document.getElementById("correctWords").textContent = `Correct Words: ${correctWords} / ${totalWords}`;
+    document.getElementById("wordsTyped").textContent = `Words Typed: ${finishedWords} / ${totalWords}`;
+    document.getElementById("correctLetters").textContent = `Correct Letters: ${correctLetters} / ${totalLetters}`;
+    document.getElementById("charactersTyped").textContent = `Characters Typed: ${typedLetters} / ${totalLetters}`;
+
+    document.getElementById("wordAccuracy").textContent = `Word Accuracy: ${wordAccuracy}%`;
+    document.getElementById("letterAccuracy").textContent = `Letter Accuracy: ${letterAccuracy}%`;
 }
   
 document.getElementById("game").addEventListener("keyup", updateStats);
+
