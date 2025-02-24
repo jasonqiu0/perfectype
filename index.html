@@ -8,7 +8,7 @@
 </head>
 <body>
     <main>
-        <h1>type</h1>
+        <h1>TurtleType</h1>
         <div id="header">
             <div id="buttons">
                 <div id="wordsButtons" class="button-group">
@@ -21,15 +21,24 @@
                     <button id="mediumButton">Medium</button>
                     <button id="hardButton">Hard</button>
                 </div>
-                <button id="restartButton">Restart</button>
+                <button id="restartButton">Restart (Esc)</button>
         </div>
 
         <div id="game" tabindex="0">
             <div id="words"></div>
             <div id="letters"></div>
         </div>
+
+        <div id="stats">
+            <p id="correctWordsStat">Correct Words: 0 / 0</p>
+            <p id="correctLettersStat">Correct Letters: 0 / 0</p>
+            <p id="wordsTypedStat">Words Typed: 0 / 0</p>
+            <p id="charactersTypedStat">Characters Typed: 0 / 0</p>
+          </div>
+        
     </main>
     <script src="game.js"></script>
     <script src="buttons.js"></script>
+    <script src="stats.js"></script>
 </body>
 </html>
