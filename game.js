@@ -34,6 +34,10 @@ function startGame() {
     addClass(document.querySelector('.word'), 'current');
     addClass(document.querySelector('.letter'), 'current');
     
+    typedCharacters = 0
+    correctCharacters = 0
+    typedWords = 0
+    correctWords = 0
 
 }
 document.getElementById("game").addEventListener('keydown', ev => {
@@ -43,6 +47,11 @@ document.getElementById("game").addEventListener('keydown', ev => {
         startGame();
     }
 });
+
+let typedCharacters = 0
+let correctCharacters = 0
+let typedWords = 0
+let correctWords = 0
 document.getElementById("game").addEventListener('keyup', ev => {
     const key = ev.key;
     const currentWord = document.querySelector('.word.current');
@@ -56,15 +65,21 @@ document.getElementById("game").addEventListener('keyup', ev => {
     console.log({key,expected});
 
 
+
     if(isLetter) {
         if(currentLetter) {
             if(key == expected) {
                 addClass(currentLetter, 'correct');
                 removeClass(currentLetter, 'current');
+                typedCharacters += 1
+                correctCharacters += 1
+                console.log(correctCharacters)
             }
             else if(key != expected) {
                 addClass(currentLetter, 'incorrect');
                 removeClass(currentLetter, 'current');
+                typedCharacters += 1
+
             }
             if (currentLetter.nextElementSibling) {
                 addClass(currentLetter.nextElementSibling, 'current');
@@ -79,6 +94,12 @@ document.getElementById("game").addEventListener('keyup', ev => {
             addClass(letter, 'incorrect');
           });
         }
+        typedWords += 1;
+        if (!currentWord.querySelector('.letter.incorrect')) {
+            correctWords += 1;
+        }
+        
+        currentWord.classList.add("finished");
         document.querySelector('.word.current').classList.add("finished");
         
         removeClass(currentWord, 'current');
@@ -88,16 +109,7 @@ document.getElementById("game").addEventListener('keyup', ev => {
         }
         addClass(currentWord.nextSibling.firstChild, 'current');
     }
-    /* AUTOMATIC SCROLL DOWN (if necessary)
-    const threshold = 60;
-    if (currentWord.nextSibling) { 
-        const newCurrentWord = document.querySelector('.word.current');
-        if(newCurrentWord && newCurrentWord.offsetTop > threshold) {
-            const scrollAmount = newCurrentWord.offsetTop - threshold;
-            document.getElementById('words').style.transform = `translateY(-${scrollAmount}px)`;
-        }
-    }
-    */
+
 
 });
 
