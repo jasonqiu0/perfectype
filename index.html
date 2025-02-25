@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jq typing game</title>
+    <title>perfectype</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,11 +11,10 @@
         <h1 id= "title">
             perfectype
             <div id = "description">
-                <img src="images/backspace.webp" alt="Backspace Icon" id="backspaceIcon">
-                <div id="a">no backspaces</div>
+              <img src="images/backspace.webp" alt="Backspace Icon" id="backspaceIcon">
+              <div id="a">no backspaces</div>
             </div>
         </h1>
-
         <div id="controls">
             <div id="buttons">
               <div id="wordsButtons" class="button-group">
@@ -36,7 +35,9 @@
               <p id="letterAccuracy">Letter Accuracy: 0%</p>
             </div>
           </div>
-
+          <div id="timer">
+            <p>0.00</p>
+          </div>
         <div id="game" tabindex="0">
             <div id="words"></div>
             <div id="letters"></div>
@@ -55,5 +56,6 @@
     <script src="game.js"></script>
     <script src="buttons.js"></script>
     <script src="stats.js"></script>
+    <script src="timer.js"></script>
 </body>
 </html>
