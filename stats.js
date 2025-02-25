@@ -22,8 +22,8 @@ function updateStats() {
       }
     });
 
-    let wordAccuracy = totalWords > 0 ? Math.round((correctWords / totalWords) * 100) : 0;
-    let letterAccuracy = totalLetters > 0 ? Math.round((correctLetters / totalLetters) * 100) : 0;
+    let wordAccuracy = typedWords > 0 ? Math.round((correctWords / typedWords) * 100) : 0;
+    let letterAccuracy = typedCharacters > 0 ? Math.round((correctCharacters / typedCharacters) * 100) : 0;
 
     document.getElementById("correctWords").textContent = `Correct Words: ${correctWords} / ${totalWords}`;
     document.getElementById("wordsTyped").textContent = `Words Typed: ${finishedWords} / ${totalWords}`;
