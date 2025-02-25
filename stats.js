@@ -32,6 +32,11 @@ function updateStats() {
 
     document.getElementById("wordAccuracy").textContent = `Word Accuracy: ${wordAccuracy}%`;
     document.getElementById("letterAccuracy").textContent = `Letter Accuracy: ${letterAccuracy}%`;
+
+    if (finishedWords == totalWords && timeStarted) {
+      stopTime();
+    }
+
 }
   
 document.getElementById("game").addEventListener("keyup", updateStats);
