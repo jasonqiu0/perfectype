@@ -19,11 +19,20 @@
 }
 
 #backspaceIcon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin-left: 10px;
+    margin-top: 7px;
     filter: invert(1000%) sepia(100000%) saturate(10%) hue-rotate(124deg);
 
+}
+
+#a {
+    color: white;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-top: -50px;
+    margin-left: 70px;
 }
 
 body {
@@ -32,12 +41,13 @@ body {
     font-weight: 400;
     font-style: normal;
     font-variation-settings:
-        "wdth" 105;
+        "width" 105;
     font-size: 1.6rem;
 
     background-color: var(--bgColor);
     color: var(--textColor);
 }
+
 
 main {
     width: 800px;
@@ -48,6 +58,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 
 button {
     font-family: "Inconsolata", serif;
@@ -63,12 +74,12 @@ button.active {
     background-color: var(--typedColor);
     color: var(--untypedColor);
   }
-  #controls {
+#controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-  }
+}
 
 #buttons {
     display: flex;
@@ -115,19 +126,19 @@ button.active {
 @keyframes blink {
     0% { background-color: rgba(255, 255, 255, 1); }
     100% { background-color: transparent; }
-  }
-  .letter.current {
+}
+.letter.current {
      animation: blink .7s  infinite;
-  }
+}
 
-  #stats {
+#stats {
     margin-top: 20px;
     font-size: 1.4rem;
     color: var(--typedColor);
-  }
-  #stats p {
+}
+#stats p {
     margin: 5px 0;
-  }
+}
 #wordsTyped {
     color: var(--untypedColor);
 }
@@ -139,4 +150,4 @@ button.active {
     font-size: 1.4rem;
     margin: 5px 0;
     color: var(--typedColor);
-  }
+}
