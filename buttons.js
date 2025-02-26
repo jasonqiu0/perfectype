@@ -15,6 +15,9 @@ function toggleButton(selector) {
   toggleButton("#wordsButtons");
   toggleButton("#difficultyButtons");
 
+document.getElementById("restartButton").addEventListener("click", function() {
+    startGame();
+});
 
 document.getElementById("10wordsButton").addEventListener("click", function() {
     wordsLen = 10;
