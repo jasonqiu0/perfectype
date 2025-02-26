@@ -24,7 +24,6 @@
     margin-left: 10px;
     margin-top: 7px;
     filter: invert(1000%) sepia(100000%) saturate(10%) hue-rotate(124deg);
-
 }
 
 #a {
@@ -48,7 +47,6 @@ body {
     color: var(--textColor);
 }
 
-
 main {
     width: 800px;
     margin: 70px auto;
@@ -59,7 +57,6 @@ header {
     grid-template-columns: 1fr 1fr;
 }
 
-
 button {
     font-family: "Inconsolata", serif;
     font-size: 1.0rem;
@@ -68,12 +65,14 @@ button {
     border: 0;
     border-radius: 4px;
     padding: 10px 15px;
+    cursor: pointer;
 }
 
 button.active {
     background-color: var(--typedColor);
     color: var(--untypedColor);
   }
+
 #controls {
     display: flex;
     justify-content: space-between;
@@ -87,6 +86,7 @@ button.active {
     gap: 10px;
     align-items: left;
     flex-direction: column;
+    cursor: pointer;
 }
 
 #restartButton {
@@ -103,9 +103,24 @@ button.active {
 
 #game {
     line-height: 30px;
-    height: 340px;
+    height: 200px;
     overflow: hidden;
     position: relative;
+
+    -webkit-mask-image: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 10%, 
+        rgba(0,0,0,0.7) 35%,
+        rgba(0,0,0,0)
+    );
+    mask-image: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 40%, 
+        rgba(0,0,0,0.5) 55%,
+        rgba(0,0,0,0)
+    );
+}
+
+#game:focus {
+    outline: none;
 }
 
 .word {
@@ -150,4 +165,20 @@ button.active {
     font-size: 1.4rem;
     margin: 5px 0;
     color: var(--typedColor);
+}
+
+#chartContainer {
+    margin-top: 20px;
+    height: 300px;
+    position: relative;
+}
+
+#progressChart {
+    background-color: var(--bgColor);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+#game.typing {
+    cursor: none !important;
 }
