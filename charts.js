@@ -13,7 +13,7 @@ function initChart() {
         data: {
             labels: chartData.times,
             datasets: [{
-                label: 'Pure WPM',
+                label: 'WPM',
                 data: chartData.wpm,
                 borderColor: '#80baa5',
                 tension: 0.1,
@@ -30,6 +30,17 @@ function initChart() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white',
+                        font: {
+                            size: 20, 
+                            family: 'Inconsolata'
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
@@ -37,6 +48,10 @@ function initChart() {
                         display: true,
                         text: 'WPM / RAW WPM',
                         color: '#5f7a71',
+                        font: {
+                            size: 25,
+                            family: 'Inconsolata'
+                        }
                         
                     },
                     grid: {
@@ -44,19 +59,31 @@ function initChart() {
                     },
                     ticks: {
                         color: '#5f7a71',
+                        font: {
+                            size: 20,
+                            family: 'Inconsolata'
+                        }
                     }
                 },
                 x: {
                     title: {
                         display: true,
-                        text: 'Time (seconds)',
+                        text: 'Time (s)',
                         color: '#5f7a71',
+                        font: {
+                            size: 25,
+                            family: 'Inconsolata'
+                        }
                     },
                     grid: {
                         color: '#5f7a71',
                     },
                     ticks: {
                         color: '#5f7a71',
+                        font: {
+                            size: 20,
+                            family: 'Inconsolata'
+                        }
                     }
                 }
             }
