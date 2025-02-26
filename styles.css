@@ -57,6 +57,33 @@ header {
     grid-template-columns: 1fr 1fr;
 }
 
+.progressBar {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    background-color: var(--untypedColor);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progressFill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--typedColor);
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+}
+/*
+.progressText {
+    color: var(--bgColor);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+}
+*/
+
 button {
     font-family: "Inconsolata", serif;
     font-size: 1.0rem;
@@ -99,6 +126,7 @@ button.active {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
+    overflow-anchor: none;
 }
 
 #game {
@@ -106,7 +134,8 @@ button.active {
     height: 200px;
     overflow: hidden;
     position: relative;
-
+    scrollbar-width: thin;
+    
     -webkit-mask-image: linear-gradient(to bottom, 
         rgba(0,0,0,1) 10%, 
         rgba(0,0,0,0.7) 35%,
@@ -181,4 +210,11 @@ button.active {
 
 #game.typing {
     cursor: none !important;
+}
+
+#game.finished {
+    cursor: default !important;
+    overflow-y: scroll;
+    -webkit-mask-image: none;
+    mask-image: none;
 }
