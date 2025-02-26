@@ -34,6 +34,7 @@ function updateStats() {
     document.getElementById("letterAccuracy").textContent = `Letter Accuracy: ${letterAccuracy}%`;
 
     if (finishedWords == totalWords && timeStarted) {
+      const finalTime = (Date.now() - timeStart) / 1000;
       stopTime();
     }
 
