@@ -47,6 +47,7 @@ document.getElementById("game").addEventListener('keydown', ev => {
     if(isEscape) {
         startGame();
         resetTime();
+        document.getElementById('game').classList.remove('finished');
     }
 });
 
@@ -101,6 +102,7 @@ document.getElementById("game").addEventListener('keyup', ev => {
         document.querySelector('.word.current').classList.add("finished");
         
         removeClass(currentWord, 'current');
+        
         addClass(currentWord.nextSibling, 'current');
         if (currentLetter) {
           removeClass(currentLetter, 'current');
