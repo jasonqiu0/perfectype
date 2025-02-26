@@ -27,6 +27,7 @@ function wordToDiv(word) {
 
 function startGame() {
     document.getElementById('words').innerHTML = '';
+    document.getElementById('words').style.transform = 'translateY(0px)';
     for(let i = 0; i < wordsLen; i++) {
         document.getElementById('words').innerHTML += wordToDiv(randomWord());
     }
@@ -37,7 +38,8 @@ function startGame() {
     correctCharacters = 0
     typedWords = 0
     correctWords = 0
-
+    document.getElementById("game").focus();
+    resetChart();
 }
 document.getElementById("game").addEventListener('keydown', ev => {
     const key = ev.key;
@@ -59,12 +61,8 @@ document.getElementById("game").addEventListener('keyup', ev => {
     const expected = currentLetter?.innerHTML || ' ';
     const isLetter = key.length === 1 && key !== ' ';
     const isSpace = key === ' ';
-    const isBackspace = key === 'Backspace';
-    const isFirstLetter = currentLetter === currentWord.firstChild;
 
     console.log({key,expected});
-
-
 
     if(isLetter) {
         if(currentLetter) {
@@ -110,7 +108,23 @@ document.getElementById("game").addEventListener('keyup', ev => {
         addClass(currentWord.nextSibling.firstChild, 'current');
     }
 
+    const threshold = 0.1;
+    if (currentWord.nextSibling) { 
+        const newCurrentWord = document.querySelector('.word.current');
+        if(newCurrentWord && newCurrentWord.offsetTop > threshold) {
+            const scrollAmount = newCurrentWord.offsetTop - threshold;
+            document.getElementById('words').style.transform = `translateY(-${scrollAmount}px)`;
+        }
+    }
 
+});
+
+document.getElementById('game').addEventListener('keydown', () => {
+    document.getElementById('game').classList.add('typing');
+});
+
+document.addEventListener('mousemove', () => {
+    document.getElementById('game').classList.remove('typing');
 });
 
 
