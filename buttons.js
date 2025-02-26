@@ -35,6 +35,7 @@ document.getElementById("50wordsButton").addEventListener("click", function() {
     wordsLen = 50;
     startGame();
     updateStats();
+    
 });
 
 document.getElementById("easyButton").addEventListener("click", function() {
@@ -53,5 +54,9 @@ document.getElementById("hardButton").addEventListener("click", function() {
     words = wordsHard;
     startGame();
     updateStats();
+});
+
+document.getElementById("buttons").addEventListener("click", function() {
+    document.getElementById('game').classList.remove('finished');
 });
 
