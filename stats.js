@@ -37,8 +37,15 @@ function updateStats() {
       const finalTime = (Date.now() - timeStart) / 1000;
       stopTime();
     }
+    if (finishedWords == totalWords) {
+      document.getElementById("game").classList.add("finished");
+      document.getElementById('words').style.transform = `translateY(0px)`;
+    }
 
+    const progressBar = document.querySelector('.progressBar');
+    progressBar.querySelector('.progressFill').style.width = `${(finishedWords / totalWords) * 100}%`;
+    progressBar.querySelector('.progressText').textContent = `${Math.round((finishedWords / totalWords) * 100)}%`;
+    
 }
   
 document.getElementById("game").addEventListener("keyup", updateStats);
-
