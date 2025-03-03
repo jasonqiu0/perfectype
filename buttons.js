@@ -12,8 +12,8 @@ function toggleButton(selector) {
     });
   }
   
-  toggleButton("#wordsButtons");
-  toggleButton("#difficultyButtons");
+toggleButton("#wordsButtons");
+toggleButton("#difficultyButtons");
 
 document.getElementById("restartButton").addEventListener("click", function() {
     startGame();
@@ -35,7 +35,6 @@ document.getElementById("50wordsButton").addEventListener("click", function() {
     wordsLen = 50;
     startGame();
     updateStats();
-    
 });
 
 document.getElementById("easyButton").addEventListener("click", function() {
@@ -59,4 +58,3 @@ document.getElementById("hardButton").addEventListener("click", function() {
 document.getElementById("buttons").addEventListener("click", function() {
     document.getElementById('game').classList.remove('finished');
 });
-
