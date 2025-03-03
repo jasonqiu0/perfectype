@@ -17,6 +17,8 @@ toggleButton("#difficultyButtons");
 
 document.getElementById("restartButton").addEventListener("click", function() {
     startGame();
+    updateStats();
+    resetTime();
 });
 
 document.getElementById("10wordsButton").addEventListener("click", function() {
