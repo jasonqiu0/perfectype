@@ -20,7 +20,6 @@ function randomWord() {
     return words[randomIndex]; 
 }
 
-
 function wordToDiv(word) {
     return `<div class="word"><span class="letter">${word.split('').join('</span><span class="letter">')}</span></div>`;
 }
@@ -128,6 +127,5 @@ document.getElementById('game').addEventListener('keydown', () => {
 document.addEventListener('mousemove', () => {
     document.getElementById('game').classList.remove('typing');
 });
-
 
 startGame();
