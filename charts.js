@@ -2,7 +2,8 @@ let progressChart;
 let chartData = {
     times: [],
     wpm: [],
-    wpmRaw: []
+    wpmRaw: [],
+    accuracy: []
 };
 
 function initChart() {
@@ -25,6 +26,13 @@ function initChart() {
                 borderColor: 'white',
                 tension: 0.1,
                 color: 'white',
+            },
+            {
+                label: 'Accuracy%',
+                data: chartData.accuracy,
+                borderColor: '#f55',
+                tension: 0.1,
+                color: '#f55',
             }]
         },
         options: {
@@ -46,7 +54,7 @@ function initChart() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'WPM / RAW WPM',
+                        text: 'WPM / RAW WPM / Accuracy%',
                         color: '#5f7a71',
                         font: {
                             size: 25,
@@ -99,15 +107,18 @@ function updateChart() {
     const wpm = Math.round((correctWords) / (currentTime / 60));
     const wpmRaw = Math.round((typedWords) / (currentTime / 60));
 
+    const accuracy = typedWords > 0 ? (correctWords / typedWords) * 100 : 0;
+
     chartData.times.push(currentTime.toFixed(1));
     chartData.wpm.push(wpm);
     chartData.wpmRaw.push(wpmRaw);
+    chartData.accuracy.push(accuracy.toFixed(1));
     
     progressChart.update();
 }
 
 function resetChart() {
-    chartData = { times: [], wpm: [], wpmRaw: [] };
+    chartData = { times: [], wpm: [], wpmRaw: [], accuracy: [] };
     if(progressChart) {
         progressChart.destroy();
     }
